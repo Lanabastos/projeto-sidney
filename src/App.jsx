@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import logo from './assets/logo.png';
 
 export default function TravelReportSystem() {
 
@@ -203,10 +204,8 @@ ${formData.responsavelGeral}
         {/* HEADER */}
         <div className="bg-gray-950 rounded-3xl p-8 text-white shadow-2xl">
           <div className="flex items-center gap-6">
-            <div className="bg-white p-4 rounded-3xl shadow-lg">
-              <div className="w-24 h-24 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-500 text-xs text-center">
-                Logo
-              </div>
+            <div className="bg-black p-4 rounded-3xl shadow-lg">
+              <img src={logo} alt="Logo" className="w-24 h-24 object-contain" />
             </div>
             <div>
               <h1 className="text-4xl font-bold">Sistema de Relatórios de Viagens</h1>
@@ -287,13 +286,7 @@ ${formData.responsavelGeral}
           <textarea className="bg-white text-gray-900 border border-gray-300 rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full min-h-[150px]" placeholder="Considerações finais" name="consideracoes" value={formData.consideracoes} onChange={handleChange} />
         </section>
 
-        {/* PRÉ-VISUALIZAÇÃO */}
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Pré-visualização do Relatório</h2>
-          <div ref={reportRef} className="bg-gray-900 text-gray-100 rounded-3xl p-6 whitespace-pre-wrap text-sm leading-7 overflow-auto max-h-[700px]">
-            {generateReport()}
-          </div>
-        </section>
+
 
         {/* FEEDBACK */}
         {savedMessage && (
@@ -307,12 +300,7 @@ ${formData.responsavelGeral}
           <button onClick={handleGeneratePDF} className="bg-green-600 text-white px-6 py-3 rounded-2xl hover:bg-green-700 transition">
             Gerar PDF
           </button>
-          <button onClick={handleSave} className="bg-gray-800 text-white px-6 py-3 rounded-2xl hover:bg-black transition">
-            Salvar Relatório
-          </button>
-          <button onClick={handleLoad} className="bg-blue-600 text-white px-6 py-3 rounded-2xl hover:bg-blue-700 transition">
-            Carregar Relatório Salvo
-          </button>
+
         </div>
 
       </div>
